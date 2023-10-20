@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap" rel="stylesheet">
+    <title>T.H.T</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  </head>
+  <body>
+    <div class="hero">
+      <nav class="centered-nav">
+        <div class="logo-container">
+          <a href="index.html">
+            <img src="images/new-logo-tht.jpeg" alt="Logo" class="logo">
+          </a>
+        </div>
+        <ul>
+          <li>
+            <a href="" id="contact-nav">צור קשר</a>
+          </li>
+          <li>
+            <a href="" id="menu-nav">מנות</a>
+          </li>
+          <li>
+            <a href="" id="about-nav">מי אנחנו</a>
+          </li>
+          <li class="cart-container">
+            <i class="fas fa-shopping-cart" id="cart-icon"></i>
+            <span id="cart-counter">0</span>
+          </li>
+        </ul>
+      </nav>
+      <!-- Slideshow -->
+      <div class="image-slideshow">
+        <div class="image">
+          <img src="images/slideshow/1.jpeg" alt="Mountain Top">
+        </div>
+        <div class="image">
+          <img src="images/slideshow/2.jpeg" alt="Neon Sign">
+        </div>
+        <div class="image">
+          <img src="images/slideshow/3.jpeg" alt="Neon Sign">
+        </div>
+        <div class="image">
+          <img src="images/slideshow/4.jpeg" alt="Neon Sign">
+        </div>
+        <div class="image">
+          <img src="images/slideshow/5.jpeg" alt="Neon Sign">
+        </div>
+        <div class="image">
+          <img src="images/slideshow/6.jpeg" alt="Neon Sign">
+        </div>
+        <div class="image">
+          <img src="images/slideshow/7.jpeg" alt="Neon Sign">
+        </div>
+        <a class="prev" id="prev">&#10094;</a>
+        <a class="next" id="next">&#10095;</a>
+      </div>
+      <!-- End Slideshow -->
+      <div class="content-wrapper">
+        <div class="image-container">
+          <img src="images/holding-a-meal-new.jpg" alt="Holding a meal">
+        </div>
+        <div class="text-container">
+          <h1>תפסיקו לדאוג לתפריט שלכם</h1>
+          <p>אנחנו כאן ב THT, מטרתנו היא להקל עליכם את מטלת הקניות, הבישולים ושטיפת הכלים.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-us-wrapper" id="about">
+      <div class="text-container">
+        <h1>מי אנחנו?</h1>
+        <p>היא המקום שבו אנחנו מציעים לכם לבחור מתוך תפריט מיוחד, המיוצר על ידי השפים שלנו, מנות בריאות המשלבות חלבונים, פחמימות וירקות באופן מושלם. אנחנו מבינים שכל לקוח הוא שונה ויש לו צרכים ומטרות משלו. לכן, בין אם אתה מתאמן 5 פעמים בשבוע או רק פעמיים, אם אתה בעל/ת עסק ואין לך זמן להכין ארוחות או אם אתה סטודנט שמחפש אוכל בריא, אנחנו כאן כדי לספק לך את הפתרון המתאים</p>
+      </div>
+    </div>
+    <div class="faq-wrapper">
+      <div class="text-container">
+        <h1>שאלות נפוצות</h1>
+        <ul>
+          <li>
+            <strong>האם האוכל כשר?</strong>
+            <p>החומר גלם כשר אך אין תעודה</p>
+          </li>
+          <li>
+            <strong>האם ניתן לשנות או לבטל הזמנה?</strong>
+            <p>כמובן, אנא לשלוח לנו הודעה בוואצאפ עד יום שישי בערב</p>
+          </li>
+          <li>
+            <strong>איך מזמינים?</strong>
+            <p>ללחוץ על כפתור (הזמן כעת) ואז להרכיב מנה מבחינת חלבון/ פחמימה / ירקות וגם חלוקת המשקל לכל אחד.</p>
+          </li>
+          <li>
+            <strong>איך המשלוח מגיע ומתי?</strong>
+            <p>המשלוח מגיע בהובלה בקירור של 4 מעלות ביום שני בשעות היום. <br> *ניתן לאסוף את הארוחות מאזור שפרעם </p>
+          </li>
+          <li>
+            <strong>כמה זמן אוכל לשמור את האוכל במקרר?</strong>
+            <p>אפשר לשמור את האוכל במקרר עד שבוע, הדגים ניתן עד 4 ימים מקבלת המשלוח.</p>
+          </li>
+          <li>
+            <strong>האם אפשר להקפיא את הארוחות?</strong>
+            <p>כמובן.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="order-container">
+      <p class="warning">הרכב מנה</p>
+      <div class="meal">
+        <div class="order-line">
+          <select class="type-selector">
+            <option selected="selected" value="">בחר מרכיב</option>
+            <option value="חלבונים">חלבונים</option>
+            <option value="פחמניות">פחמימה</option>
+            <option value="ירקות">ירקות</option>
+          </select>
+          <select class="subtype-selector">
+            <option selected="selected" value="">בחר מנה</option>
+          </select>
+          <label class="grams-label" for="grams">גרם</label>
+          <select class="grams">
+            <option value="100">100</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+            <option value="250">250</option>
+            <option value="300">300</option>
+          </select>          <span class="line-total" style="display:none;">0</span>
+        </div>
+        <div class="order-line">
+          <select class="type-selector">
+            <option selected="selected" value="">בחר מרכיב</option>
+            <option value="חלבונים">חלבונים</option>
+            <option value="פחמניות">פחמימה</option>
+            <option value="ירקות">ירקות</option>
+          </select>
+          <select class="subtype-selector">
+            <option selected="selected" value="">בחר מנה</option>
+          </select>
+          <label for="grams">גרם</label>
+          <select class="grams">
+            <option value="100">100</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+            <option value="250">250</option>
+            <option value="300">300</option>
+          </select>          <span class="line-total" style="display:none;">0</span>
+        </div>
+        <div class="order-line">
+          <select class="type-selector">
+            <option selected="selected" value="">בחר מרכיב</option>
+            <option value="חלבונים">חלבונים</option>
+            <option value="פחמניות">פחמימה</option>
+            <option value="ירקות">ירקות</option>
+          </select>
+          <select class="subtype-selector">
+            <option selected="selected" value="">בחר מנה</option>
+          </select>
+          <label for="grams">גרם</label>
+          <select class="grams">
+            <option value="100">100</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+            <option value="250">250</option>
+            <option value="300">300</option>
+          </select>          <span class="line-total" style="display:none;">0</span>
+        </div>
+        <label for="order-quantity">כמות:</label>
+        <input type="number" id="order-quantity" class="order-quantity" value="1" min="1">
+        <button id="add-to-cart">הוספה לסל</button>
+        <button id="secondary-cart-icon" class="cart-button">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count">0</span>
+        </button>
+        <button id="new-meal">הזמנה חדשה</button>
+      </div>
+      <div id="cart-message" style="display: none;"></div>
+      <div id="total-order-container">
+        <div id="totalPrice">סה"כ: <span id="total-order">0</span>₪ </div>
+        <div id="shipping-container">
+          <div>
+            <i class="fas fa-motorcycle"></i> עלות משלוח: <span style="color: #ffd700;">50</span> ₪
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="contact-us-wrapper" id="contact">
+      <div class="text-container">
+        <h1>צור קשר</h1>
+        <div class="social-icons">
+          <a href="https://wa.me/message/I3TG5J6KDFGOB1" target="_blank" class="whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://instagram.com/thehealthy.team?igshid=MzRlODBiNWFlZA==" target="_blank" class="instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100082831797859&mibextid=D4KYlr" target="_blank" class="facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.tiktok.com/@thehealthyteam?_t=8fBv0HCtvNf&_r=1" target="_blank" class="tiktok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-logo-container">
+          <img src="images/logo.jpeg" alt="Company Logo" class="footer-logo">
+        </div>
+        <div class="footer-item"> &copy; 2023 T.H.T <br> טלפון: <a href="tel:0585555016">058-5555-016</a>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="a.js"></script>
+  </body>
+</html>
