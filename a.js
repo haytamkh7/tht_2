@@ -469,7 +469,7 @@ document.getElementById('submit-user-info').addEventListener('click', () => {
     }
 
     const message = generateWhatsAppMessage(userName, userPhone, userAddress, userRequests);
-    const phoneNumber = "+972506501245";  // Replace with the store's phone number
+    const phoneNumber = "+972585555016";  // Replace with the store's phone number
     window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
 
     hideUserModal();
