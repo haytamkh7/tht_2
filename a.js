@@ -410,6 +410,29 @@ document.addEventListener('click', function(event) {
   // END WhatsApp Section
 
   function generateWhatsAppMessage(userName, userPhone, userAddress, userRequests) {
+    // Mapping for food subtype to emojis
+    const foodEmojis = {
+      'בורגר שייטל': "🍔",
+      'סטייק שייטל': "🥩",
+      'סטייק הודו': "🍗",
+      'בורגר עוף': "🍔",
+      'שווארמה עוף': "🌯",
+      'חזה עוף': "🍗",
+      'אמנון': "🐟",
+      'סלמון': "🐟",
+      'טונה': "🐟",
+      'אורז': "🍚",
+      'תפוח אדמה': "🥔",
+      'בטטה': "🍠",
+      'פסטה': "🍝",
+      'בורגול': "🍚",
+      'קינואה': "🍚",
+      'ברוקולי': "🥦",
+      'שעועית': "🌱",
+      'אפונה': "🌽"
+  };
+  
+
     let userInfo = `\u200B
 \u200B📌 שם: ${userName}
 \u200B📞 טלפון: ${userPhone}
@@ -422,14 +445,15 @@ document.addEventListener('click', function(event) {
   
     let index = 0;
     cart.forEach((quantity, mealString) => {
-      let meal = JSON.parse(mealString);
-      message += `🍛 מנה (x${quantity}):\n`;
-      meal.forEach(item => {
-        message += `   - ${item.subtype}, ${item.grams}g\n`;
-      });
-      let mealTotalPrice = cartModalItems[index] ? cartModalItems[index].innerText.split(': ')[1] : '25';
-      message += `💵 סה"כ למנה: ${mealTotalPrice}\n\n`;
-      index++;
+        let meal = JSON.parse(mealString);
+        message += `🍛 מנה (x${quantity}):\n`;
+        meal.forEach(item => {
+            const emoji = foodEmojis[item.subtype] || "";
+            message += `   ${emoji} - ${item.subtype}, ${item.grams}g\n`;
+        });
+        let mealTotalPrice = cartModalItems[index] ? cartModalItems[index].innerText.split(': ')[1] : '25';
+        message += `💵 סה"כ למנה: ${mealTotalPrice}\n\n`;
+        index++;
     });
 
     // Add horizontal line to separate meals from final shipping and total price
@@ -441,6 +465,7 @@ document.addEventListener('click', function(event) {
     
     return encodeURIComponent(message);
 }
+
 
 
 
