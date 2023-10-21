@@ -24,6 +24,7 @@
 	align-items: center;
 	flex-direction: column;
 	padding: 20px 8%;
+	font-size: 1.3em;
   }
   
   .logo-container {
