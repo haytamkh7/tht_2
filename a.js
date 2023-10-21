@@ -29,7 +29,6 @@ document.getElementById('contact-nav').addEventListener('click', function(event)
     behavior: "smooth"
   });
 });
-  // Existing constant values
   const DEFAULT_TOTAL = 25;
   const SHIPPING_COST = 50;
   const priceData = {
@@ -49,8 +48,6 @@ document.getElementById('contact-nav').addEventListener('click', function(event)
     'פחמניות': ["אורז", "תפוח אדמה", "בטטה", "פסטה", "בורגול", "קינואה"],
     'ירקות': ["ברוקולי", "שעועית", "אפונה"]
   };
-
-  // Your existing FAQ and Navigation logic can remain the same
 
   function populateSubtypeOptions(selectedType, subtypeSelector) {
     subtypeSelector.innerHTML = '<option selected="selected" value="">בחר מנה</option>';
@@ -118,8 +115,7 @@ document.getElementById('contact-nav').addEventListener('click', function(event)
   document.querySelectorAll('.order-line').forEach(line => initializeOrderLine(line));
   updateTotalPrice();
 
-  //CART
-// Cart-related code remains the same
+//CART
 const cart = new Map();
 const cartIcon = document.getElementById('cart-icon');
 const secondaryCartIcon = document.getElementById('secondary-cart-icon');
@@ -140,7 +136,6 @@ function updateCartCounter() {
 }
 
 
-// Modified the updateTotal function to be more similar to your friend's updateTotalPrice function
 function updateTotal() {
   let totalPrice = 0;
   let hasProtein = false;
@@ -221,36 +216,41 @@ function addToCart() {
         }, 4000);
     }
 }
+// New showcart
 function showCart() {
     cartModal.innerHTML = `
-      <div class="cart-modal-header" style="display: flex; justify-content: center; align-items: center;">
-        <h3 class="cart-modal-title">העגלה</h3>
-        <button class="close-btn">×</button>
-      </div>
-      <div class="cart-modal-content"></div>
-      <div class="cart-total">
-        <p>סה"כ לתשלום: <span id="cart-total-price">0.00</span>₪</p>
-        <p style="color: #FF4136;">כולל דמי משלוח</p>
-        <button id="send-cart-to-whatsapp">
-        <i class="fab fa-whatsapp"></i> שלח הזמנה לחנות
-      </button>
-      </div>
-    `;
+  <div class="cart-modal-header" style="display: flex; justify-content: center; align-items: center;">
+    <h3 class="cart-modal-title">העגלה</h3>
+    <button class="close-btn">×</button>
+  </div>
+  <div class="cart-modal-content"></div>
+  <div class="cart-total">
+    <p>סה"כ לתשלום: <span id="cart-total-price">0.00</span>₪</p>
+    <p style="color: #FF4136;">כולל דמי משלוח</p>
+    <button id="send-cart-to-whatsapp">
+    <i class="fab fa-whatsapp"></i> שלח הזמנה לחנות
+  </button>
+  </div>
+  `;
   
     const cartContent = cartModal.querySelector('.cart-modal-content');
     let cartTotalPrice = 0;
+  
     const calculateLineTotal = (item) => {
-        return priceData[item.subtype] && priceData[item.subtype][item.grams] 
-               ? priceData[item.subtype][item.grams] 
-               : 0;
-      };
+      return priceData[item.subtype] && priceData[item.subtype][item.grams] ?
+          priceData[item.subtype][item.grams] :
+          0;
+    };
   
     cart.forEach((quantity, mealString) => {
       let meal = JSON.parse(mealString);
       let mealDiv = document.createElement('div');
       mealDiv.className = 'cart-modal-item';
-  
+      mealDiv.dataset.mealString = mealString;
+      
       let mealInfo = `<h3>מנה (X${quantity})</h3>`;
+      mealInfo += '<button class="delete-item modern-btn">מחק הזמנה</button>';
+      
       let tableContent = `<table><thead><tr><th>שם המנה</th><th>גרם</th></tr></thead><tbody>`;
       let mealTotalPrice = 0;
       let hasProtein = false;
@@ -269,7 +269,7 @@ function showCart() {
       }
   
       tableContent += `</tbody></table>`;
-      mealTotalPrice *= quantity;  // Multiply by quantity
+      mealTotalPrice *= quantity;
       mealInfo += tableContent + `<p>סה"כ למנה: ${Math.ceil(mealTotalPrice)}₪</p>`;
       mealDiv.innerHTML = mealInfo;
       cartContent.appendChild(mealDiv);
@@ -281,8 +281,20 @@ function showCart() {
   
     document.getElementById('cart-total-price').innerText = Math.ceil(cartTotalPrice);
   
+    document.querySelectorAll('.delete-item').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const mealString = e.target.closest('.cart-modal-item').dataset.mealString;
+      cart.delete(mealString);
+      showCart();
+      updateCartCounter();  // Update the cart counter
+    });
+  });
+  
+  
     cartModal.style.display = 'block';
   }
+  
+// END new showcart
   
 
   function hideCart() {
@@ -351,64 +363,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//WhatsApp Section
-// WhatsApp Section
-// function generateWhatsAppMessage(userName, userPhone, userAddress, userRequests) {
-//     let userInfo = `
-//             Name: ${userName}
-//             Phone: ${userPhone}
-//             Address: ${userAddress}
-//             Special Requests: ${userRequests || 'None'}
-//         `;
-  
-//     let message = userInfo + "\n\nYour Order:\n";
-//     let cartModalItems = Array.from(document.querySelectorAll('.cart-modal-item p')); // Assuming this CSS selector targets the <p> elements showing סה"כ למנה: 
-  
-//     let index = 0;
-//     cart.forEach((quantity, mealString) => {
-//       let meal = JSON.parse(mealString);
-//       message += `Meal (x${quantity}):\n`;
-//       meal.forEach(item => {
-//         message += `- ${item.subtype}, ${item.grams}g\n`;
-//       });
-//       let mealTotalPrice = cartModalItems[index] ? cartModalItems[index].innerText.split(': ')[1] : '25';
-//       message += `סה"כ למנה: ${mealTotalPrice}₪\n\n`;
-//       index++;
-//     });
-  
-//     message += `Total: ${document.getElementById('cart-total-price').innerText}₪\n`;
-//     message += "Thank you for ordering!";
-//     return encodeURIComponent(message);
-//   }
-  // END WhatsApp Section
-
   function generateWhatsAppMessage(userName, userPhone, userAddress, userRequests) {
     // Mapping for food subtype to emojis
     const foodEmojis = {
@@ -456,7 +410,6 @@ document.addEventListener('click', function(event) {
         index++;
     });
 
-    // Add horizontal line to separate meals from final shipping and total price
     message += "==========\n";
   
     message += `🚚 עלות משלוח: 50₪\n`;
@@ -465,16 +418,7 @@ document.addEventListener('click', function(event) {
     
     return encodeURIComponent(message);
 }
-
-
-
-
-
-
-
-  
-
-
+	
 // Add click event listener to show user info modal
 const sendCartButton = document.getElementById('send-cart-to-whatsapp');
 if (sendCartButton) {
