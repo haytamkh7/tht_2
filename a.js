@@ -250,7 +250,7 @@ function showCart() {
       mealDiv.dataset.mealString = mealString;
       
       let mealInfo = `<h3>מנה (X${quantity})</h3>`;
-      mealInfo += '<button class="delete-item modern-btn">מחק הזמנה</button>';
+      mealInfo += '<button class="delete-item modern-btn">מחק מנה</button>';
       
       let tableContent = `<table><thead><tr><th>שם המנה</th><th>גרם</th></tr></thead><tbody>`;
       let mealTotalPrice = 0;
