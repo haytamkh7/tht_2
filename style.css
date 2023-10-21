@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-    	font-family: Calibri;
+    	font-family: "Heebo";
 	font-weight: lighter;
 	box-sizing: border-box;
   }
@@ -24,7 +24,6 @@
 	align-items: center;
 	flex-direction: column;
 	padding: 20px 8%;
-	font-size: 1.3em;
   }
   
   .logo-container {
