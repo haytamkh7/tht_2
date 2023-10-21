@@ -680,6 +680,35 @@
 	padding: 2px 6px;
 	text-align: center;
   }
+.delete-item {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: red;
+  }
+  .modern-btn {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .modern-btn:hover {
+    background-color: #ff6b81;
+    transform: scale(1.05);
+  }
+  
+  .modern-btn:active {
+    background-color: #e42135;
+    transform: scale(0.95);
+  }
   
   /* User Information Modal Styles */
   body.modal-open {
