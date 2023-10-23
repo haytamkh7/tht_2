@@ -325,6 +325,11 @@
 	padding: 0 20px;
 	text-align: center;
   }
+
+  .faq-wrapper .text-container ul li > strong:hover {
+	opacity: 0.5;
+	transition: opacity 0.3s ease;
+  }
   
   .faq-wrapper .text-container ul li {
 	margin: 10px 0;
