@@ -956,6 +956,10 @@
   .site-footer {
 	padding: 20px 0;
   }
+
+  .site-footer>img {
+	  border-radius: 10px;
+  }
   
   .footer-content {
 	display: flex !important;
