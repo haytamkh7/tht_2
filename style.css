@@ -957,10 +957,6 @@
 	padding: 20px 0;
 	color: white;
   }
-
-  .site-footer>img {
-	  border-radius: 10px;
-  }
   
   .footer-content {
 	display: flex !important;
@@ -981,14 +977,14 @@
   }
   
   .footer-logo {
-	max-width: 40%;
+	width: 100px;
+	border-radius: 15px;
 	max-height: 40%;
 	display: block;
 	margin: 0 auto;
   }
   
   .footer-item a {
-	color: #3498db;
 	text-decoration: none;
 	transition: color 0.3s;
   }
